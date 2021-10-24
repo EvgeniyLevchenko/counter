@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
+                <tapGestureRecognizer id="rdr-2H-IZA"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="9TG-T9-Rge">
+                    <connections>
+                        <action selector="countButton:" destination="BYZ-38-t0r" id="6ea-EK-dox"/>
+                    </connections>
+                </pongPressGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="counter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynP-2I-lr3">
+                                <rect key="frame" x="126.66666666666669" y="422" width="161" height="52"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Tap or Hold"/>
+                                <connections>
+                                    <action selector="tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L9R-4L-OtM"/>
+                                    <outletCollection property="gestureRecognizers" destination="9TG-T9-Rge" appends="YES" id="UwQ-Cz-QgW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAs-FU-U3G">
+                                <rect key="frame" x="31" y="52" width="55" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ya8-Im-yZq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Counter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jA-DC-XAV">
+                                <rect key="frame" x="168.66666666666666" y="57.999999999999993" width="77" height="26.666666666666664"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWE-Mc-bde">
+                                <rect key="frame" x="20" y="284.66666666666669" width="374" height="137.33333333333331"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="115"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="aWE-Mc-bde" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4t1-gt-aiH"/>
+                            <constraint firstItem="4jA-DC-XAV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K1H-Iw-iSP"/>
+                            <constraint firstItem="ynP-2I-lr3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QX8-ik-CVs"/>
+                            <constraint firstItem="4jA-DC-XAV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="YtP-9P-cXy"/>
+                            <constraint firstItem="dAs-FU-U3G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="jRA-Sj-Z3L"/>
+                            <constraint firstItem="ynP-2I-lr3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lPW-QX-QCN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aWE-Mc-bde" secondAttribute="trailing" constant="20" id="maK-uk-EcQ"/>
+                            <constraint firstItem="ynP-2I-lr3" firstAttribute="top" secondItem="aWE-Mc-bde" secondAttribute="bottom" id="wDe-gA-YAQ"/>
+                            <constraint firstItem="dAs-FU-U3G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="zS4-6X-ULd"/>
+                            <constraint firstItem="aWE-Mc-bde" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zgN-iX-IC4"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9TG-T9-Rge" appends="YES" id="1Fb-1e-Jnm"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="counterLabel" destination="aWE-Mc-bde" id="fbb-cN-5gA"/>
+                        <outlet property="tapOrHold" destination="ynP-2I-lr3" id="kgo-LG-a0U"/>
+                    </connections>
+                </viewController>
             </objects>
+            <point key="canvasLocation" x="-1164" y="-80"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
